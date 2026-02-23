@@ -76,6 +76,26 @@
     background: rgba(25, 28, 35, 0.3);
 }
 
+.completed-section {
+    margin-top: var(--spacing-xl);
+    padding-top: var(--spacing-md);
+    border-top: 1px dashed var(--color-border);
+}
+
+.completed-header {
+    margin-bottom: var(--spacing-md);
+    padding-left: var(--spacing-xs);
+}
+
+.completed-header h3 {
+    font-size: 0.85rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+    margin: 0;
+}
+
 @media (min-width: 768px) {
     .task-list-header {
         flex-direction: row;

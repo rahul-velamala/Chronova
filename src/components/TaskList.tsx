@@ -131,13 +131,34 @@ const TaskList: React.FC = () => {
                         <p>No tasks found. Get started by adding a new one!</p>
                     </div>
                 ) : (
-                    filteredAndSortedTasks.map((task) => (
-                        <TaskItem
-                            key={task.id}
-                            task={task}
-                            onEdit={handleEditTask}
-                        />
-                    ))
+                    <>
+                        <div className="pending-tasks">
+                            {filteredAndSortedTasks.filter(t => !t.completed).map((task) => (
+                                <TaskItem
+                                    key={task.id}
+                                    task={task}
+                                    onEdit={handleEditTask}
+                                />
+                            ))}
+                        </div>
+
+                        {filteredAndSortedTasks.some(t => t.completed) && (
+                            <div className="completed-section">
+                                <div className="completed-header">
+                                    <h3>Completed Tasks</h3>
+                                </div>
+                                <div className="completed-tasks-list">
+                                    {filteredAndSortedTasks.filter(t => t.completed).map((task) => (
+                                        <TaskItem
+                                            key={task.id}
+                                            task={task}
+                                            onEdit={handleEditTask}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+                    </>
                 )}
             </div>
 
