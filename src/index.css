@@ -1,43 +1,43 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 
 :root {
-  /* Premium Minimal Dark Mode Color Palette */
-  --color-bg-base: #111111;
-  /* Deeper minimal black/gray */
-  --color-bg-elevated: rgba(26, 26, 26, 0.6);
-  --color-bg-elevated-hover: rgba(40, 40, 40, 0.8);
-  --color-border: rgba(255, 255, 255, 0.05);
-  /* Softer borders */
+  /* Ultra-Premium Deep Space Color Palette */
+  --color-bg-base: #09090b;
+  /* Very dark zinc */
+  --color-bg-elevated: rgba(39, 39, 42, 0.3);
+  --color-bg-elevated-hover: rgba(63, 63, 70, 0.4);
+  --color-border: rgba(255, 255, 255, 0.08);
+  /* Crisp subtle border */
 
-  --color-text-primary: #ededed;
+  --color-text-primary: #fafafa;
   --color-text-secondary: #a1a1aa;
   /* Zinc-400 */
-  --color-text-tertiary: #52525b;
-  /* Zinc-600 */
+  --color-text-tertiary: #71717a;
+  /* Zinc-500 */
 
   /* Accents */
-  --color-accent-primary: #a8b1ff;
-  /* Soft pastel indigo */
-  --color-accent-primary-hover: #939bf4;
-  --color-accent-secondary: #7dd3fc;
-  /* Soft sky pastel */
+  --color-accent-primary: #3b82f6;
+  /* Vibrant Blue */
+  --color-accent-primary-hover: #2563eb;
+  --color-accent-secondary: #8b5cf6;
+  /* Vibrant Violet */
 
   /* Priorities */
-  --color-priority-high: #fca5a5;
-  /* Pastel Red */
-  --color-priority-medium: #fcd34d;
-  /* Pastel Amber */
-  --color-priority-low: #86efac;
-  /* Pastel Green */
+  --color-priority-high: #ef4444;
+  /* Red 500 */
+  --color-priority-medium: #eab308;
+  /* Yellow 500 */
+  --color-priority-low: #22c55e;
+  /* Green 500 */
 
   /* Statuses */
-  --color-success: #86efac;
-  --color-danger: #fca5a5;
+  --color-success: #22c55e;
+  --color-danger: #ef4444;
 
   /* Glassmorphism & Shadows */
-  --glass-bg: rgba(20, 22, 28, 0.4);
-  --glass-border: 1px solid rgba(255, 255, 255, 0.05);
-  --glass-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  --glass-bg: rgba(9, 9, 11, 0.6);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.08);
+  --glass-shadow: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
   --glass-blur: blur(12px);
 
   /* Typography */
@@ -82,10 +82,10 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   min-height: 100vh;
-  /* Subtle background gradient - desaturated */
+  /* Subtle background gradient - elegant glow */
   background-image:
-    radial-gradient(circle at 15% 50%, rgba(168, 177, 255, 0.04), transparent 25%),
-    radial-gradient(circle at 85% 30%, rgba(125, 211, 252, 0.04), transparent 25%);
+    radial-gradient(circle at 0% 0%, rgba(59, 130, 246, 0.04), transparent 40%),
+    radial-gradient(circle at 100% 100%, rgba(139, 92, 246, 0.04), transparent 40%);
   background-attachment: fixed;
 }
 

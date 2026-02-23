@@ -19,7 +19,9 @@
     font-size: 1.5rem;
     font-weight: 700;
     background: linear-gradient(135deg, var(--color-accent-primary), var(--color-accent-secondary));
+    background-clip: text;
     -webkit-background-clip: text;
+    color: transparent;
     -webkit-text-fill-color: transparent;
     margin: 0;
     letter-spacing: -0.05em;
@@ -41,8 +43,8 @@
 
 @media (min-width: 1024px) {
     .grid-layout {
-        grid-template-columns: 75fr 25fr;
-        /* Calendar 75%, Todo 25% */
+        grid-template-columns: 80fr 20fr;
+        /* Calendar 80%, Todo 20% */
     }
 }
 
