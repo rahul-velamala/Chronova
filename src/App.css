@@ -41,8 +41,8 @@
 
 @media (min-width: 1024px) {
     .grid-layout {
-        grid-template-columns: 6fr 4fr;
-        /* Calendar 60%, Todo 40% */
+        grid-template-columns: 75fr 25fr;
+        /* Calendar 75%, Todo 25% */
     }
 }
 
