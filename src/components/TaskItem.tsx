@@ -31,20 +31,14 @@ const TaskItem: React.FC<TaskItemProps> = ({ task, onEdit }) => {
             <div className="task-content">
                 <div className="task-header">
                     <h3 className="task-title">{task.title}</h3>
-                    <span className={`task-badge badge-${task.priority.toLowerCase()}`}>
-                        {task.priority}
-                    </span>
                 </div>
-
-                {task.description && (
-                    <p className="task-description">{task.description}</p>
+                {(task.description || task.time || task.date) && (
+                    <div className="task-details">
+                        {task.time && <span className="task-inline-time">{task.time}</span>}
+                        {task.date && <span className="task-inline-date">{task.date}</span>}
+                        {task.description && <span className="task-inline-desc">{task.description}</span>}
+                    </div>
                 )}
-
-                <div className="task-meta">
-                    <span className="task-time">
-                        🗓 {task.date} ⏱ {task.time}
-                    </span>
-                </div>
             </div>
 
             <div className="task-actions">

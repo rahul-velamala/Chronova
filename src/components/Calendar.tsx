@@ -130,30 +130,43 @@ const Calendar: React.FC = () => {
             </div>
 
             <div className="calendar-grid">
-                <div className="calendar-days-header">
-                    {weekDays.map(d => <div key={d} className="day-name">{d}</div>)}
-                </div>
                 <div className={`calendar-days-body ${viewMode === 'week' ? 'week-view' : 'month-view'}`}>
                     {daysData.map((dObj, idx) => {
                         const dayTasks = tasksByDate[dObj.dateStr] || [];
                         const isToday = dObj.dateStr === todayStr;
+                        const isFirstRow = idx < 7;
+
+                        // Parse the actual date object for month formatting
+                        const [y, m, d] = dObj.dateStr.split('-').map(Number);
+                        const cellDateObj = new Date(y, m - 1, d);
+
+                        // If it's the 1st of any month, show '1 Mar', '1 Apr'.
+                        // Or if it's the very first cell of the calendar and NOT the 1st, just show the number (or month too? The image only shows month on the 1st).
+                        const showMonth = dObj.day === 1;
+                        const dateDisplay = showMonth ? `${dObj.day} ${monthNames[cellDateObj.getMonth()].substring(0, 3)}` : dObj.day;
+
                         return (
                             <div
                                 key={idx}
                                 className={`calendar-cell ${dObj.p ? 'padding-cell' : ''} ${isToday ? 'today-cell' : ''}`}
                                 onClick={() => handleDayClick(dObj.dateStr)}
                             >
-                                <div className="cell-date">
-                                    <span className={isToday ? 'today-indicator' : ''}>{dObj.day}</span>
+                                <div className="cell-header">
+                                    {isFirstRow && <div className="day-name-inline">{weekDays[idx]}</div>}
+                                    <div className="cell-date">
+                                        <span className={isToday ? 'today-indicator' : ''}>{dateDisplay}</span>
+                                    </div>
                                 </div>
                                 <div className="cell-tasks">
-                                    {dayTasks.slice(0, 3).map(t => (
-                                        <div key={t.id} className={`task-dot dot-${t.priority.toLowerCase()} ${t.completed ? 'dot-completed' : ''}`} title={t.title}>
-                                            <span className="task-dot-title">{t.title}</span>
+                                    {dayTasks.slice(0, 4).map(t => (
+                                        <div key={t.id} className={`cal-task-item ${t.completed ? 'completed' : ''}`} title={t.title}>
+                                            <span className={`cal-task-dot dot-${t.priority.toLowerCase()}`}></span>
+                                            {t.time && <span className="cal-task-time">{t.time}</span>}
+                                            <span className="cal-task-title">{t.title}</span>
                                         </div>
                                     ))}
-                                    {dayTasks.length > 3 && (
-                                        <div className="task-more">+{dayTasks.length - 3} more</div>
+                                    {dayTasks.length > 4 && (
+                                        <div className="task-more">+{dayTasks.length - 4} more</div>
                                     )}
                                 </div>
                             </div>

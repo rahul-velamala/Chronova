@@ -81,22 +81,7 @@
     background: var(--color-bg-base);
 }
 
-.calendar-days-header {
-    display: grid;
-    grid-template-columns: repeat(7, minmax(0, 1fr));
-    background: var(--color-bg-elevated);
-    border-bottom: 1px solid var(--color-border);
-}
 
-.day-name {
-    padding: var(--spacing-sm);
-    text-align: center;
-    font-size: 0.75rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    color: var(--color-text-tertiary);
-    letter-spacing: 0.05em;
-}
 
 .calendar-days-body {
     flex: 1;
@@ -118,9 +103,9 @@
 
 .calendar-cell {
     background-color: var(--color-bg-base);
-    min-height: 80px;
+    min-height: 120px;
     min-width: 0;
-    padding: var(--spacing-xs);
+    padding: var(--spacing-sm) var(--spacing-sm);
     cursor: pointer;
     transition: background-color var(--transition-fast);
     display: flex;
@@ -132,15 +117,31 @@
 }
 
 .padding-cell {
-    background-color: rgba(25, 28, 35, 0.3);
+    background-color: rgba(9, 9, 11, 0.4);
     color: var(--color-text-tertiary);
 }
 
+.cell-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+}
+
+.day-name-inline {
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: var(--color-text-tertiary);
+    letter-spacing: 0.05em;
+    margin-bottom: 2px;
+}
+
 .cell-date {
-    text-align: right;
+    text-align: center;
     font-size: 0.85rem;
     font-weight: 500;
-    margin-bottom: 4px;
+    color: var(--color-text-secondary);
 }
 
 .today-indicator {
@@ -158,36 +159,56 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    gap: 2px;
+    gap: 6px;
     overflow: hidden;
 }
 
-.task-dot {
-    font-size: 0.7rem;
-    padding: 2px 4px;
-    border-radius: 2px;
+.cal-task-item {
+    display: flex;
+    align-items: center;
+    font-size: 0.75rem;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: white;
-    border-left: 2px solid rgba(255, 255, 255, 0.5);
+    color: var(--color-text-primary);
+}
+
+.cal-task-item.completed {
+    opacity: 0.5;
+    text-decoration: line-through;
+}
+
+.cal-task-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    margin-right: 6px;
+    flex-shrink: 0;
 }
 
 .dot-high {
-    background-color: rgba(239, 68, 68, 0.8);
+    background-color: #3b82f6;
+    /* Blue like the image */
 }
 
 .dot-medium {
-    background-color: rgba(245, 158, 11, 0.8);
+    background-color: #ef4444;
+    /* Red like the image */
 }
 
 .dot-low {
-    background-color: rgba(16, 185, 129, 0.8);
+    background-color: #22c55e;
 }
 
-.dot-completed {
-    opacity: 0.5;
-    text-decoration: line-through;
+.cal-task-time {
+    color: var(--color-text-secondary);
+    margin-right: 4px;
+    font-weight: 500;
+}
+
+.cal-task-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .task-more {
